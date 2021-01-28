@@ -8,7 +8,7 @@
 #define RFM95_CS 10
 #define RFM95_RST 9
 #define RFM95_INT 3
-#define RF95_FREQ 431.0
+#define RF95_FREQ 433.0
 
 RH_RF95 rf95(RFM95_CS, RFM95_INT);
 
@@ -38,13 +38,11 @@ void setup()
 
   while (!rf95.init()) {
     Serial.println("L'initialisation radio LoRa a échoué");
-    while (1);
   }
   Serial.println("L'initialisation radio LoRa OK !");
 
   if (!rf95.setFrequency(RF95_FREQ)) {
     Serial.println("setFrequency a échoué ");
-    while (1);
   }
   Serial.print("Freq sur : "); Serial.println(RF95_FREQ);
 
